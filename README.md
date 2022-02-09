@@ -5,6 +5,8 @@ This script generates a Lottie JSON file from image sequences.
 
 ### Install
 
+You need [Python3](https://www.python.org/downloads/)
+
 1. Clone this repo or Code > DownloadZIP
 2. Run `pip install -r requirement.txt`
 
