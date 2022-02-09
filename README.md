@@ -17,10 +17,12 @@ You need [Python3](https://www.python.org/downloads/)
 gen_json.py
   Required args:
     -s size of animation (ex: 360x360)
-    -d image sequences location + pattern (ex: ./render/*.png)
+    -d image sequences location + pattern (ex: "./render/*.png") *1
 
   Optional args:
   -f Number of frames
   -o JSON file output location
   -n JSON file name
 ```
+
+[1] Use quotes around the location ex `"./render/*.png"`
