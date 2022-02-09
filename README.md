@@ -1,11 +1,12 @@
 # Generate Lottie JSON file
 
-This script generate a Lottie JSON file from image sequences.
+This script generates a Lottie JSON file from image sequences.
 
 
 ### Install
 
-Run `pip install -r requirement.txt`
+1. Clone this repo or Code > DownloadZIP
+2. Run `pip install -r requirement.txt`
 
 
 ### Usage
