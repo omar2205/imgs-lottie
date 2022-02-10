@@ -1,2 +1,2 @@
 lottie
-illow
+pillow
