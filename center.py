@@ -9,3 +9,4 @@ def center(window, size):
     y = int((screen_height / 2) - (h / 2))
 
     window.geometry(f'{w}x{h}+{x}+{y}')
+
