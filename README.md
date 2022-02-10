@@ -13,6 +13,14 @@ You need [Python3](https://www.python.org/downloads/)
 
 ### Usage
 
+2 ways to run, GUI and CLI.
+
+#### GUI
+
+`python3 main.py`
+
+#### CLI
+
 ```
 gen_json.py
   Required args:
