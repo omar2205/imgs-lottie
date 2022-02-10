@@ -7,6 +7,10 @@
 This script generates a Lottie JSON file from image sequences.
 
 
+Frames: Number of frames, Size: Animation size (Format ex: 720x360)
+
+Output: JSON output location
+
 ### Install
 
 You need [Python3](https://www.python.org/downloads/)
