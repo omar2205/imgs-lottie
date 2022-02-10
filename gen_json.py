@@ -12,9 +12,8 @@
 #   -d image sequences location + pattern (ex: ./render/*.png)
 
 import sys
+from lottie.utils.script import script_main as generate_json
 import glob
-from lottie.utils import script
-from lottie import objects
 
 import argparse
 try:
@@ -43,6 +42,7 @@ parser.add_argument('-s',
 parser.add_argument('-d', 
                     dest='location', 
                     help='image sequences location + pattern (ex: ./*.png)',
+                    nargs='+',
                     required=True)
 
 
@@ -51,33 +51,18 @@ args = parser.parse_args()
 # number of frames
 frames = args.frames
 # animation width and height (exported)
-size = args.size.split('x')
-width = size[0]
-height = size[1]
+size = args.size
 json_file_name = args.file_name
+images_location = args.location
 
-# Create an Animation
-anim = objects.Animation(frames)
-anim.width = width
-anim.height = height
-
-# Get a list of all *.png images in current dir
-files = glob.glob(args.location)
-
-# we create a layer for every image
-for idx, img_file in enumerate(files):
-    # load an image and add it to our assets
-    img = objects.assets.Image().load(img_file)
-    anim.assets.append(img)
-
-    # create an image layer with the image id
-    layer = objects.ImageLayer(img.id)
-    # add it to our animation
-    p = anim.add_layer(layer)
-    # start and in and out times (from our index)
-    p.start_time = idx
-    p.in_point = idx        # type: ignore
-    p.out_point = idx + 1   # type: ignore
+from generate import Anim
+try:
+    anim = Anim(frames=frames, size=size,
+                images_location=images_location)
+    anim = anim.get()
+except ValueError as err:
+    print(err)
+    exit(1)
 
 with patch.object(sys, 'argv', [sys.argv[0]]):
-    script.script_main(anim, path=args.output, basename=args.file_name, formats=['json'])
+    generate_json(anim, path=args.output, basename=args.file_name, formats=['json'])
