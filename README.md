@@ -33,4 +33,5 @@ gen_json.py
   -n JSON file name
 ```
 
-[1] Use quotes around the location ex `"./render/*.png"`
+[1] ~Use quotes around the location ex `"./render/*.png"`~
+[1] You may use `/path/to/images/*.png`
